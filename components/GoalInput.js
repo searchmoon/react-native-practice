@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Modal, StyleSheet, TextInput, View } from "react-native";
+import { Button, Image, Modal, StyleSheet, TextInput, View } from "react-native";
 
 const GoalInput = (props) => {
   const [enteredGoalText, setEnteredGoalText] = useState("");
@@ -16,6 +16,7 @@ const GoalInput = (props) => {
   return (
     <Modal visible={props.visible} animationType="slide">
       <View style={styles.inputContainer}>
+        <Image style={styles.image} source={require("../assets/images/goal.png")} />
         <TextInput
           style={styles.textInput}
           placeholder="Your course goal"
@@ -41,15 +42,19 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center", // 안에 있는 Button 컴포넌트는 style 속성을 가질 수 없기 때문에, 버튼이 이상하게 세로로 늘어났다.기본 stretch 속성을 center 로 바꿔주었다.
     padding: 16,
-    marginBottom: 24,
-    borderBottomWidth: 1,
-    borderBlockColor: "#cccccc",
+    backgroundColor: "#311b6b",
+  },
+  image: {
+    width: 100,
+    height: 100,
+    margin: 20,
   },
   textInput: {
     borderWidth: 1,
     borderColor: "#cccccc",
     width: "100%",
     padding: 8,
+    color: "white",
   },
   buttonContainer: {
     marginTop: 16,
